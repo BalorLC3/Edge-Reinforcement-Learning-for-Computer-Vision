@@ -1,3 +1,11 @@
+
+!.gitignore
 .vscode
-/myExample
+myExample
+build
 *.exe
+CMakeSettings.json
+
+tags
+tegra/
+bin/
