@@ -73,7 +73,7 @@ int main() {
                 edgeCurr.push_back({currentPts[i].x, currentPts[i].y});
             }
 
-            // RUN YOUR MATH 
+            // RUN  
             edgecv::Mat3x3 H_edge = edgecv::estimateTransform(edgeOrig, edgeCurr, currentMode);
             
             // CONVERT BACK AND PROJECT 
