@@ -7,3 +7,4 @@ target_include_directories(edgecv PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include PRI
 
 add_subdirectory(examples)
 add_subdirectory(tests)
+add_subdirectory(benchmarks)

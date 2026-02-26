@@ -1,3 +1,4 @@
+The repository is under development and some updates are not currently showed, as the objective is to get an optimized version of what we see here.
 ```bash
 edge-cv-lib/
 ├── CMakeLists.txt              # The root build configuration file
