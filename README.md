@@ -5,7 +5,7 @@ edge-cv-lib/
 ├── README.md                   # Project overview, build instructions, and benchmarks
 ├── .gitignore                  # Ignore build/, bin/, and lib/ directories
 │
-├── include/                    # PUBLIC headers (Your modular APIs)
+├── include/                    # PUBLIC headers 
 │   └── edgecv/                 # Always namespace your includes!
 │       ├── core.hpp            # Base types and memory allocation definitions
 │       ├── linalg.hpp          # Your optimized linear algebra APIs
