@@ -28,7 +28,7 @@ int main() {
     auto endCV = chrono::high_resolution_clock::now();
     chrono::duration<double, std::milli> diffCV = endCV - startCV;
 
-    // --- Benchmark EdgeCV (Your Library) ---
+    // --- Benchmark EdgeCV ---
     auto startEdge = chrono::high_resolution_clock::now();
     for(int i = 0; i < iterations; ++i) {
         edgecv::Mat3x3 H = edgecv::estimateTransform(edgeSrc, edgeDst, edgecv::MotionModel::AFFINE);
