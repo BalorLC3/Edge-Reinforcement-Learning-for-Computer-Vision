@@ -9,7 +9,6 @@ using namespace cv;
 
 int main() {
     const int iterations = 100000; // Run 100k times for a good average
-    
     // Define test points
     vector<Point2f> cvSrc = {{0,0}, {100,0}, {0,100}};
     vector<Point2f> cvDst = {{10,10}, {120,5}, {15,110}};
@@ -28,7 +27,7 @@ int main() {
     auto endCV = chrono::high_resolution_clock::now();
     chrono::duration<double, std::milli> diffCV = endCV - startCV;
 
-    // --- Benchmark EdgeCV ---
+    // Benchmark EdgeCV 
     auto startEdge = chrono::high_resolution_clock::now();
     for(int i = 0; i < iterations; ++i) {
         edgecv::Mat3x3 H = edgecv::estimateTransform(edgeSrc, edgeDst, edgecv::MotionModel::AFFINE);
