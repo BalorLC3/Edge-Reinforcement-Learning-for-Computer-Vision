@@ -26,5 +26,5 @@ namespace edgecv {
      */
     std::vector<Point2f> applyTransform(const std::vector<Point2f>& pts, 
                                         const Mat3x3& H);
-
+    
 } // namespace edgecv

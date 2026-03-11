@@ -19,6 +19,7 @@ namespace edgecv {
     };
 
     enum class MotionModel { TRANSLATION, AFFINE, PERSPECTIVE, RIGID, SIMILARITY };
+    enum class ImageNoise { GAUSSIAN, SALTANDPEPPER, POISSON, UNIFORM };
 
     
 
