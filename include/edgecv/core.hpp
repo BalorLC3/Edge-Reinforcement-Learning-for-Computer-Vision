@@ -1,26 +1,54 @@
 #pragma once
 #include <vector>
+#include <algorithm>  
 
 namespace edgecv {
-    // Lightweight 2D point structure
-    struct Point2f {
-        float x, y;
-        Point2f () : x(0), y(0) {}
-        Point2f(float _x, float _y) : x(_x), y(_y) {}
-    };
 
-    // Lightweight 3x3 Matrix for 2D transformation
+struct Point2f {
+    float x = 0.0f, y = 0.0f;
+};
 
-    struct Mat3x3 {
-        double data[9] = {1, 0, 0, 0, 1, 0, 0, 0, 1}; // Identity default
-        
-        double& at(int row, int col) {return data [row * 3 + col]; }
-        const double& at (int row, int col) const { return data[row * 3 + col]; }
-    };
+struct Mat3x3 {
+    float data[9] = {1,0,0, 0,1,0, 0,0,1};  // float, not double
+    float&       at(int r, int c)       { return data[r*3+c]; }
+    const float& at(int r, int c) const { return data[r*3+c]; }
 
-    enum class MotionModel { TRANSLATION, AFFINE, PERSPECTIVE, RIGID, SIMILARITY };
-    enum class ImageNoise { GAUSSIAN, SALTANDPEPPER, POISSON, UNIFORM };
+    // Apply to a 2D point (homogeneous divide)
+    Point2f apply(Point2f p) const {
+        float w = data[6]*p.x + data[7]*p.y + data[8];
+        return { (data[0]*p.x + data[1]*p.y + data[2]) / w,
+                 (data[3]*p.x + data[4]*p.y + data[5]) / w };
+    }
+};
 
-    
+enum class MotionModel { TRANSLATION, AFFINE, HOMOGRAPHY }; 
 
-} // namespace
+struct Tensor {
+    float*  data     = nullptr;
+    int     ndim     = 0;
+    int     shape[8]   = {};
+    int     strides[8] = {};
+    size_t  numel    = 0;
+    bool    owns     = false;
+
+    template<typename... Idx>
+    float& at(Idx... indices) {
+        int idx_arr[] = { static_cast<int>(indices)... };
+        size_t flat = 0;
+        for (int i = 0; i < ndim; ++i) flat += idx_arr[i] * strides[i];
+        return data[flat];
+    }
+
+    Tensor slice(int i) const {
+        Tensor t;
+        t.data  = data + i * strides[0];
+        t.ndim  = ndim - 1;
+        t.numel = numel / shape[0];
+        t.owns  = false;
+        std::copy(shape   + 1, shape   + ndim, t.shape);
+        std::copy(strides + 1, strides + ndim, t.strides);
+        return t;
+    }
+};
+
+} 
