@@ -66,7 +66,6 @@ int main() {
             rectangle(display, tempRect, Scalar(0, 255, 0), 2);
         } else if (currentPts.size() == 4) {
             
-            // BRIDGE TO YOUR LIBRARY 
             vector<edgecv::Point2f> edgeOrig, edgeCurr;
             for (int i = 0; i < 4; ++i) {
                 edgeOrig.push_back({origPts[i].x, origPts[i].y});
