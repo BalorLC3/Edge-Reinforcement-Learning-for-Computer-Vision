@@ -5,10 +5,10 @@ edge-cv-lib/
 ├── README.md                   # Project overview, build instructions, and benchmarks
 ├── .gitignore                  # Ignore build/, bin/, and lib/ directories
 │
-├── include/                    # PUBLIC headers (Your modular APIs)
-│   └── edgecv/                 # Always namespace your includes!
+├── include/                    # PUBLIC headers 
+│   └── edgecv/                 
 │       ├── core.hpp            # Base types and memory allocation definitions
-│       ├── linalg.hpp          # Your optimized linear algebra APIs
+│       ├── linalg.hpp          # Optimized linear algebra APIs
 │       ├── prob.hpp            # Probabilistic primitives interfaces
 │       └── vision.hpp          # Computer vision pipeline interfaces
 │
@@ -21,10 +21,10 @@ edge-cv-lib/
 │
 ├── tests/                      # Unit tests (Crucial for math and algorithms)
 │   ├── CMakeLists.txt          # Tells CMake how to build the tests
-│   ├── test_linalg.cpp         # Verifies your math primitives are accurate
+│   ├── test_linalg.cpp         # Verifies math primitives are accurate
 │   └── test_vision.cpp         # Verifies CV pipelines work
 │
-├── benchmarks/                 # Performance tracking (Crucial for your resume claims)
+├── benchmarks/                 # Performance tracking 
 │   └── latency_tests.cpp       # Code to measure execution time and memory footprint
 │
 └── examples/                   # Example applications (Proof of concept)
