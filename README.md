@@ -1,32 +1,10 @@
-The repository is under development and some updates are not currently showed, as the objective is to get an optimized version of what we see here.
-```bash
-edge-cv-lib/
-├── CMakeLists.txt              # The root build configuration file
-├── README.md                   # Project overview, build instructions, and benchmarks
-├── .gitignore                  # Ignore build/, bin/, and lib/ directories
-│
-├── include/                    # PUBLIC headers 
-│   └── edgecv/                 
-│       ├── core.hpp            # Base types and memory allocation definitions
-│       ├── linalg.hpp          # Optimized linear algebra APIs
-│       ├── prob.hpp            # Probabilistic primitives interfaces
-│       └── vision.hpp          # Computer vision pipeline interfaces
-│
-├── src/                        # PRIVATE source code and private headers
-│   ├── CMakeLists.txt          # Tells CMake how to build the library itself
-│   ├── core/                   # Memory pool implementations, etc.
-│   ├── linalg/                 # Highly optimized math implementations (.cpp)
-│   ├── prob/                   # Implementation of probabilistic models
-│   └── vision/                 # OpenCV wrapper logic / anomaly detection logic
-│
-├── tests/                      # Unit tests (Crucial for math and algorithms)
-│   ├── CMakeLists.txt          # Tells CMake how to build the tests
-│   ├── test_linalg.cpp         # Verifies math primitives are accurate
-│   └── test_vision.cpp         # Verifies CV pipelines work
-│
-├── benchmarks/                 # Performance tracking 
-│   └── latency_tests.cpp       # Code to measure execution time and memory footprint
-│
-└── examples/                   # Example applications (Proof of concept)
-    └── pi_camera_demo.cpp      # Demo showing how to use the library on a Raspberry Pi
-```
+# Reinforcement Learning applied to Computer Vision
+An edge library that aims to bridge reinforcement learning and computer vision in edge devices (particularly in a RPi 4 Model B), this happens by a simple but very strong connection. For example:
+
+|| Game | Object Tracking |
+|----|------|-----|
+|__State__| Current game states | Input image + current tracking state |
+|__Action__| Turn left, right, stop | Move the bbx or finish tracking |
+|__Reward__| Scores | Accuracy 
+
+So in general is not difficult to induct a similarity between these two fields. The purpose of this project then, is to make this a feasible reality.
