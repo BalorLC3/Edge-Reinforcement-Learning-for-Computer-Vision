@@ -4,7 +4,6 @@
 #include "edgecv/core.hpp"
 #include <cstdint>
 
-
 struct Frame {
     uint8_t* data;
     int      width, height, channels;

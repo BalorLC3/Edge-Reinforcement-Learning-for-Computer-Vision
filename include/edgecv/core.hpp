@@ -4,6 +4,7 @@
 
 namespace edgecv {
 
+
 struct Point2f {
     float x = 0.0f, y = 0.0f;
 };
@@ -50,5 +51,19 @@ struct Tensor {
         return t;
     }
 };
+// this is the simplest pool, allocate by bumping a pointer
+class Arena {
+public:
+    explicit Arena(size_t capacity)
+        : buf_(static_cast<std::byte*>(
+            std::aligned_alloc(64, capacity))), // 64-byte alligned
+          cap_(capacity), offset_(0) {
+        if (!buf_) throw std::bad_alloc{};
+    }
+    ~Arena() {std::free(buf_); }
+
+    Arena(const Arena)
+};
+    ///....
 
 } 
