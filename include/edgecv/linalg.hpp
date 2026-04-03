@@ -1,7 +1,7 @@
 #pragma once
 
 #include <vector>
-#include "edgecv/core.hpp" // Custom lightweight types
+#include "edgecv/core.hpp" 
 
 namespace edgecv {
 
