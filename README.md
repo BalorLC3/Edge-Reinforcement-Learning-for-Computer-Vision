@@ -8,3 +8,5 @@ An edge library that aims to bridge reinforcement learning and computer vision i
 |__Reward__| Scores | Accuracy 
 
 So in general is not difficult to induct a similarity between these two fields. The purpose of this project then, is to make this a feasible reality.
+
+__This project is on hold__ due to that I got interested in LLMs.
